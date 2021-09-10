@@ -1,0 +1,283 @@
+#{set title:'Página Inicial' /}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Vacinação COVID-19</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="public/stylesheets/index.css" rel="stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="/public/images/favicon.ico">
+        
+<script>
+function mascara(i,t){
+	   
+	   var v = i.value;
+	   
+	   if(isNaN(v[v.length-1])){
+	      i.value = v.substring(0, v.length-1);
+	      return;
+	   }
+	   
+	   if(t == "data"){
+	      i.setAttribute("maxlength", "10");
+	      if (v.length == 2 || v.length == 5) i.value += "/";
+	   }
+ if(t == "cpf"){
+	      i.setAttribute("maxlength", "14");
+	      if (v.length == 3 || v.length == 7) i.value += ".";
+	      if (v.length == 11) i.value += "-";
+	   }
+
+	   if(t === "tel"){
+		   if (v.length === 1) i.value = "(" + i.value;
+		   if (v.length === 3) i.value += ") ";
+		   if(v[5] == 9){
+		      i.setAttribute("maxlength", "15");
+		      if (v.length === 10) i.value += "-";
+}else{
+		      i.setAttribute("maxlength", "14");
+		      if (v.length === 9) i.value += "-";
+		   }
+	   }
+	}
+</script>
+        
+        
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#">Vacinação COVID-19</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        
+      
+                        
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#cadastro">CADASTRO</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#sobre">SOBRE</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="@{Login.formdelogin}">LOGIN</a></li>
+<!--                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="@{Login.logout}">logout</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <!--  <img class="masthead-avatar mb-5" src="public/images/vacina1.png" alt="..." /> -->
+                <img class="masthead-avatar mb-5" src="/public/images/zegotinha.png" alt="..." />
+                <!-- Masthead Heading-->
+                <!-- <h1>VACINE-SE!</h1> -->
+<!--                 Icon Divider -->
+<!--                 <div class="divider-custom divider-light"> -->
+<!--                     <div class="divider-custom-line"></div> -->
+<!--                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div> -->
+<!--                     <div class="divider-custom-line"></div> -->
+<!--                 </div> -->
+                <!-- Masthead Subheading-->   
+            </div>
+            <br>
+            <br>
+            <br>
+            
+            <section class="page-section" id="cadastro">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">CADASTRO</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> Font Awesome fontawesome.com --></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Form-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        
+                        <form action="@{Pacientes.salvar}" method="post" enctype="multipart/form-data">
+							<span class="error-validation"> #{error 'paciente.nome'/}</span>
+							
+							#{if flash.success}
+								<span style="color: green;">${flash.success}</span><br>
+							#{/if}
+							
+							Nome:* <input type="text" name="paciente.nome" value="${paciente?.nome}"><br>
+							
+							<span class="error-validation">#{error 'paciente.cpf'/}</span>
+							CPF:* <input oninput="mascara(this, 'cpf')" type="text" name="paciente.cpf" value="${paciente?.cpf}"><br>
+							
+							<span class="error-validation">#{error 'paciente.dataNasc'/}</span>
+							Data de Nascimento:* <input oninput="mascara(this, 'data')" type="text" name="paciente.dataNasc" placeholder="dd/mm/aaaa" value="${paciente?.dataNasc}"><br>
+							
+							Nome da Mãe: <input type="text" name="paciente.nomeMae" value="${paciente?.nomeMae}"><br>
+							
+							<span class="error-validation">#{error 'paciente.email'/}</span>
+							Email:* <input type="text" name="paciente.email" placeholder="nome@exemplo.com" value="${paciente?.email}"><br>
+							
+							<span class="error-validation">#{error 'paciente.telefone'/}</span>
+							Telefone:* <input oninput="mascara(this, 'tel')" type="text" name="paciente.telefone" value="${paciente?.telefone}"><br>
+							
+							Dia para Vacina (Preferência): <br>
+											<select name="paciente.agenda.id" value="${paciente?.agenda}">
+												<option value="">---</option>
+												#{list items:agendas, as: 'agenda'}
+													<option value="${agenda.id}" #{if agenda.id == paciente?.agenda?.id} selected #{/if}>${agenda.diaSemana}</option>
+												#{/list}
+											</select>
+							<br>
+							
+							<!-- Foto do Paciente: <input type="file" name="paciente.foto" value="${paciente?.foto}">  -->
+							
+							<span class="error-validation">#{error 'paciente.endereco'/}</span>
+							Endereço:* <input type="text" name="paciente.endereco" value="${paciente?.endereco}">
+							
+							<span class="error-validation">#{error 'paciente.senha'/}</span>
+							Senha:* <input type="password" name="paciente.senha"><br><br>
+							
+						<input id="input_cad" type="submit" value="Cadastrar">	
+						</form>   
+                        
+                                    
+<!--                         <form action="@{Pacientes.salvar}" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN"> -->
+                            
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="text" placeholder="Insira seu Nome" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">Nome</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+                            
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="text" placeholder="000.000.000-00" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">CPF</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+                            
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="text" placeholder="dd/MM/yyyy" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">Data de Nascimento</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="text" placeholder="Insira o nome da sua mãe" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">Nome da Mãe</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="phone" type="tel" placeholder="(00) 00000-0000" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="phone">Telefone</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="text" placeholder="Insira seu Endereço" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">Endereço</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" data-sb-can-submit="no"> -->
+<!--                                 <label for="email">Email</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="email:required">Este campo é obrigatório!</div> -->
+<!-- <!--                               <div class="invalid-feedback" data-sb-feedback="email:email">Este campo é obrigatório!</div> --> -->
+<!--                             </div> -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <input class="form-control" id="name" type="password" placeholder="Crie uma senha" data-sb-validations="required" data-sb-can-submit="no"> -->
+<!--                                 <label for="name">Senha</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório!</div> -->
+<!--                             </div> -->
+                                
+                            
+                            
+<!--                             Message input -->
+<!--                             <div class="form-floating mb-3"> -->
+<!--                                 <textarea class="form-control is-invalid" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required" data-sb-can-submit="no"></textarea> -->
+<!--                                 <label for="message">Message</label> -->
+<!--                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div> -->
+<!--                             </div> -->
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+<!--                             <div class="d-none" id="submitSuccessMessage"> -->
+<!--                                 <div class="text-center mb-3"> -->
+<!--                                     <div class="fw-bolder">Form submission successful!</div> -->
+<!--                                     To activate this form, sign up at -->
+<!--                                     <br> -->
+<!--                                     <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             Submit error message -->
+<!--                             -->
+<!--                             This is what your users will see when there is -->
+<!--                             an error submitting the form -->
+<!--                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div> -->
+<!--                             Submit Button -->
+<!--                                  <input class="btn btn-primary btn-xl disabled" id="submitButton" type="submit" value="Cadastrar">	 -->
+<!--                             <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Cadastrar</button> -->
+<!--                         </form> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+            
+        </header>
+        <section class="page-section bg-primary text-white mb-0" id="sobre">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">SOBRE</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> Font Awesome fontawesome.com --></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    
+                    
+                    
+                    <div class="col-lg-4 ms-auto"><p class="lead">Bem-vindo ao Cadastro para vacinação da COVID-19 em Macau.
+					O sistema tem como objetivo ajudar a organizar e otimizar o plano de imunização da população de Macau com inovação e eficiência. Dessa forma, os benefícios deste sistema são:
+					<br><br>- Acompanhar o cadastro dos grupos prioritários;<br>
+					- Agendar a vacinação dos seus cidadãos;
+					- Dar transparência as filas de agendamento e cidadãos vacinados;
+					<br>- Envio da aplicação das doses.</p> 
+					
+					
+					</div>
+                    <div class="col-lg-4 me-auto"><p class="lead">Para o cidadão, significa facilidade do cadastro através da ampliação dos canais online, além de mais informação e maior segurança na hora de receber a sua vacina.</p></div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Vacinação COVID-19</small></div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

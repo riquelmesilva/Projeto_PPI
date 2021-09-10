@@ -1,0 +1,48 @@
+.edit {
+	width: 50%; 
+   	margin: 0 auto; 
+   	box-shadow: 0 4px 8px #999;
+   	padding: 20px;  
+   	cellpadding: 20px;
+   	color: black; 
+    text-align: left;
+	
+}
+
+#input_cad {
+	background-color: #1ABC9C;     		/*white*/
+	border-color: black;
+}
+ 
+#input_cad:hover {
+  background-color: #2c3e50;           /*#002FFF*/
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+ 
+}       
+
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1em;
+  font: 1em sans-serif;
+  border: 1px solid #999;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: rgb(0, 47, 255) !important;
+}
+
+/*input:invalid, textarea:invalid, select:invalid {
+  border-color: red;
+}*/
+
+/*input:valid, textarea:valid, select:valid {
+  border-color: green;
+}*/
+
+.error-validation {
+	color: red;	
+}     

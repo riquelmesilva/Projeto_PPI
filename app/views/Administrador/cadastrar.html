@@ -1,0 +1,83 @@
+#{extends 'main.html' /}
+#{set title:'Cadastrar Novo Paciente' /}
+
+<h1 style="text-align: center">Cadastro <img alt="" src="/public/images/icon-cadastro.png" style="width: 30px;"></h1>
+<meta charset="UTF-8">
+<link href="/public/stylesheets/editar.css" rel="stylesheet" />
+	<form action="@{Administrador.salvar}" method="post" enctype="multipart/form-data" class="edit">
+		<input type="hidden" name="paciente.id" value="${paciente?.id}">
+		
+		#{if flash.success}
+			<span style="color: green;">${flash.success}</span><br>
+		#{/if}
+		
+		<span class="error-validation">#{error 'paciente.nome'/}</span>
+		Nome: <input type="text" name="paciente.nome" value="${paciente?.nome}"><br>
+		
+		<span class="error-validation">#{error 'paciente.cpf'/}</span>
+		CPF: <input oninput="mascara(this, 'cpf')" type="text" name="paciente.cpf" value="${paciente?.cpf}"><br>
+
+		<span class="error-validation">#{error 'paciente.dataNasc'/}</span>							
+		Data de Nascimento: <input oninput="mascara(this, 'data')" type="text" name="paciente.dataNasc" placeholder="dd/mm/aaaa" value="${paciente?.dataNasc}"><br>
+		
+		Nome da Mãe: <input type="text" name="paciente.nomeMae" value="${paciente?.nomeMae}"><br>
+		
+		<span class="error-validation">#{error 'paciente.email'/}</span>
+		Email: <input type="text" name="paciente.email" placeholder="nome@exemplo.com" value="${paciente?.email}"><br>
+		
+		<span class="error-validation">#{error 'paciente.telefone'/}</span>
+		Telefone: <input oninput="mascara(this, 'tel')" type="text" name="paciente.telefone" value="${paciente?.telefone}"><br>
+		
+		Dia para Vacina (Preferência): <br>
+			<select name="paciente.agenda.id" value="${paciente?.agenda}">
+				<option value="">---</option>
+					#{list items:agendas, as: 'agenda'}
+						<option value="${agenda.id}" #{if agenda.id == paciente?.agenda?.id} selected #{/if}>${agenda.diaSemana}</option>
+					#{/list}
+			</select>
+		<br>
+		
+		<!-- Foto do Paciente: <input type="file" name="paciente.foto" value="${paciente?.foto}">  -->
+		
+		<span class="error-validation">#{error 'paciente.endereco'/}</span>
+		Endereço: <input type="text" name="paciente.endereco" value="${paciente?.endereco}">
+		
+		<span class="error-validation">#{error 'paciente.senha'/}</span>
+		Senha: <input type="password" name="paciente.senha"><br><br>
+		<input id="input_cad" type="submit" value="Cadastrar">	
+	</form>   
+	<br>
+	
+<script>
+function mascara(i,t){
+	   
+	   var v = i.value;
+	   
+	   if(isNaN(v[v.length-1])){
+	      i.value = v.substring(0, v.length-1);
+	      return;
+	   }
+	   
+	   if(t == "data"){
+	      i.setAttribute("maxlength", "10");
+	      if (v.length == 2 || v.length == 5) i.value += "/";
+	   }
+ if(t == "cpf"){
+	      i.setAttribute("maxlength", "14");
+	      if (v.length == 3 || v.length == 7) i.value += ".";
+	      if (v.length == 11) i.value += "-";
+	   }
+
+	   if(t === "tel"){
+		   if (v.length === 1) i.value = "(" + i.value;
+		   if (v.length === 3) i.value += ") ";
+		   if(v[5] == 9){
+		      i.setAttribute("maxlength", "15");
+		      if (v.length === 10) i.value += "-";
+}else{
+		      i.setAttribute("maxlength", "14");
+		      if (v.length === 9) i.value += "-";
+		   }
+	   }
+	}
+</script>

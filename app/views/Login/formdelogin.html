@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2? family = Poppins: ital, wght @ 0,100; 0,200; 0,300; 0,400; 0,700; 1,100; 1,200; 1,300 & display = swap">
+
+	<script src="https://kit.fontawesome.com/8a1c97083b.js" crossorigin="anonymous"></script>
+
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	
+    <link href="/public/stylesheets/login.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="/public/images/favicon.ico">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <main class="caixa">
+
+        <h2 class="entrada">Login</h2>
+        
+        <div style="background-color: black">
+        
+        </div>
+
+        <form action="@{Login.logar}" method="post" id="form-login" name="form">
+            <div class="input-field">
+            	#{if flash.error}
+					<span style="color: red;">${flash.error}</span><br><br>
+				#{/if}
+				
+				#{if flash.success}
+					<span style="color: green;">${flash.success}</span><br><br>
+				#{/if}
+				
+                <input type="text" name="email" id="username" placeholder="Digite seu email">
+                <div class="underline"></div>
+            </div>
+
+            <div class="input-field">
+                <input type="password" name="senha" id="password" placeholder="Digite sua senha">
+                <div class="underline"></div>
+            </div>
+            <input type="submit" value="Entrar">
+            <input type="button" value="Voltar" onclick="location.href='@{Application.index}'">
+        </form>
+        
+        <!-- 
+         <div class="footer">
+            <span>Acesse atráves das suas redes sociais</span>
+            <div class="social-field">
+                <div class="twitter">
+                    <a href="https://twitter.com/login?lang=pt">
+                        <i class="fab fa-twitter"></i>
+                        Acessar com o Twitter
+                    </a>
+                </div>
+
+                <div class="facebook">
+                    <a href="https://pt-br.facebook.com/">
+                        <i class="fab fa-facebook-f"></i>
+                        Acessar com o Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+         -->        
+         
+        <!--  		 
+		<form id="voltar">
+        <input type="button" value="Voltar" onclick="location.href='@{Application.index}'">
+        </form>
+         -->
+            
+    </main>
+    
+</body>
+
+</html>
